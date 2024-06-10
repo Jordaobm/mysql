@@ -10,6 +10,9 @@ delimiter //
 
 create procedure RecriandoEstrutura ()
 begin
+
+	drop table if exists usuarios;
+
 	create table usuarios (
 	  id mediumint auto_increment not null primary key,
 	  nome varchar(255) not null,
@@ -18,11 +21,15 @@ begin
 	  data_de_registro timestamp default current_timestamp
 	);
 
+	drop table if exists grupos;
+
 	create table grupos (
 	  id mediumint auto_increment not null primary key,
 	  nome varchar(255) not null,
 	  descricao varchar(255)
 	);
+
+	drop table if exists posts;
 
 	create table posts (
 	  id mediumint auto_increment not null primary key,
@@ -34,6 +41,8 @@ begin
 	  foreign key (id_grupo) references grupos (id)
 	);
 
+	drop table if exists comentarios;
+
 	create table comentarios (
 	  id mediumint auto_increment not null primary key,
 	  id_autor mediumint not null,
@@ -44,6 +53,8 @@ begin
 	  foreign key (id_post) references posts (id)
 	);
 
+	drop table if exists likes;
+
 	create table likes (
 	  id mediumint auto_increment not null primary key,
 	  id_post mediumint not null,
@@ -51,6 +62,8 @@ begin
 	  foreign key (id_post) references posts (id),
 	  foreign key (id_autor) references usuarios (id)
 	);
+
+	drop table if exists mensagens_privadas;
 
 	create table mensagens_privadas (
 	  id mediumint auto_increment not null primary key,
@@ -62,6 +75,8 @@ begin
 	  foreign key (id_destinatario) references usuarios (id)
 	);
 
+	drop table if exists amizades;
+
 	create table amizades (
 	  id mediumint auto_increment not null primary key,
 	  id_usuario_1 mediumint not null,
@@ -70,6 +85,8 @@ begin
 	  foreign key (id_usuario_1) references usuarios (id),
 	  foreign key (id_usuario_2) references usuarios (id)
 	);
+
+	drop table if exists membros_grupo;
 
 	create table membros_grupo (
 	  id mediumint auto_increment not null primary key,
@@ -166,103 +183,26 @@ begin
 	values
 	  (4, 5);
 
-	insert into
-	  posts (texto, id_autor)
-	values
-	  ('Bom dia gurizada!', 1);
+	insert into posts (texto, id_autor)	values ('Bom dia gurizada!', 1);
+	insert into posts (texto, id_autor, id_grupo) values ('Olá pessoal, tudo bem? Alguém ai tem aqueles assets que vamos utilizar no projeto? Poderia me mandar o link de download do zip por favor?', 1, 1);
 
-	insert into
-	  posts (texto, id_autor, id_grupo)
-	values
-	  (
-	    'Olá pessoal, tudo bem? Alguém ai tem aqueles assets que vamos utilizar no projeto? Poderia me mandar o link de download do zip por favor?',
-	    1,
-	    1
-	  );
+	insert into posts (texto, id_autor) values ('Ótimo dia à todos', 2);
+	insert into posts (texto, id_autor, id_grupo) values ('Fala galera, beleza? Daqueles métodos JAVA que fizemos estimativa ontem, alguém ai já pegou tarefa deles?', 2, 2);
 
-	insert into
-	  posts (texto, id_autor)
-	values
-	  ('Ótimo dia à todos', 2);
+	insert into posts (texto, id_autor)	values ('Bom dia pessoal, vamos codar!!!', 3);
+	insert into posts (texto, id_autor, id_grupo) values ('Oi pessoal, alguém sabe dizer se aquele .env.example está atualizado?', 3, 1);
 
-	insert into
-	  posts (texto, id_autor, id_grupo)
-	values
-	  (
-	    'Fala galera, beleza? Daqueles métodos JAVA que fizemos estimativa ontem, alguém ai já pegou tarefa deles?',
-	    2,
-	    2
-	  );
+	insert into posts (texto, id_autor)	values ('Bom dia pessoal, tudo ótimo com vocês?', 4);
+	insert into posts (texto, id_autor, id_grupo) values ('Fala galera, beleza? E aquela nova biblioteca JavaScript que lançou integração com o REACT... o que vocês estão achando dela? Eu achei show de bola!', 4, 1);
 
-	insert into
-	  posts (texto, id_autor)
-	values
-	  ('Bom dia pessoal, vamos codar!!!', 3);
+	insert into posts (texto, id_autor) values ('Oi pessoal, vamos escrever código hoje?!', 5);
+	insert into posts (texto, id_autor, id_grupo) values ('Bom dia pessoal, estou impressionado com o que fiz ontem utilizando somente JavaScript. Desenvolvi um web scraping muito doido!!!', 5, 1);
 
-	insert into
-	  posts (texto, id_autor, id_grupo)
-	values
-	  (
-	    'Oi pessoal, alguém sabe dizer se aquele .env.example está atualizado?',
-	    3,
-	    1
-	  );
+	insert into posts (texto, id_autor)	values ('Bom dia pessoal!', 6);
+	insert into posts (texto, id_autor, id_grupo) values ('Bom dia pessoal, fiz o dump do banco de dados para os meninos do frontend e agora vou prosseguir no auxilio deles para restauração dos bancos.', 6, 2);
 
-	insert into
-	  posts (texto, id_autor)
-	values
-	  ('Bom dia pessoal, tudo ótimo com vocês?', 4);
-
-	insert into
-	  posts (texto, id_autor, id_grupo)
-	values
-	  (
-	    'Fala galera, beleza? E aquela nova biblioteca JavaScript que lançou integração com o REACT... o que vocês estão achando dela? Eu achei show de bola!',
-	    4,
-	    1
-	  );
-
-	insert into
-	  posts (texto, id_autor)
-	values
-	  ('Oi pessoal, vamos escrever código hoje?!', 5);
-
-	insert into
-	  posts (texto, id_autor, id_grupo)
-	values
-	  (
-	    'Bom dia pessoal, estou impressionado com o que fiz ontem utilizando somente JavaScript. Desenvolvi um web scraping muito doido!!!',
-	    5,
-	    1
-	  );
-
-	insert into
-	  posts (texto, id_autor)
-	values
-	  ('Bom dia pessoal!', 6);
-
-	insert into
-	  posts (texto, id_autor, id_grupo)
-	values
-	  (
-	    'Bom dia pessoal, fiz o dump do banco de dados para os meninos do frontend e agora vou prosseguir no auxilio deles para restauração dos bancos.',
-	    6,
-	    2
-	  );
-
-	insert into
-	  posts (texto, id_autor)
-	values
-	  ('Fala pessoal, beleza?', 7);
-
-	insert into
-	  posts (texto, id_autor, id_grupo)
-	values
-	  (
-	    'Bom dia pessoal. Ontem fiz uma atualização em massa dos servidores e agora todos eles possuem autenticação, beleza? Lembrem de logar na aplicação para acessar os endpoints!',
-	    7,
-	    2
-	  );
+	insert into posts (texto, id_autor) values ('Fala pessoal, beleza?', 7);
+	insert into posts (texto, id_autor, id_grupo) values ('Bom dia pessoal. Ontem fiz uma atualização em massa dos servidores e agora todos eles possuem autenticação, beleza? Lembrem de logar na aplicação para acessar os endpoints!', 7, 2);
 end //
 
 delimiter ;
