@@ -104,6 +104,7 @@ delimiter ;
 -- EXECUTANDO PROCEDURE DE CRIAÇÃO DE TABELA DO BANCO
 call RecriandoEstrutura();
 
+
 -- CRIANDO UMA PROCEDURE
 delimiter //
 
@@ -203,37 +204,194 @@ begin
 
 	insert into posts (texto, id_autor) values ('Fala pessoal, beleza?', 7);
 	insert into posts (texto, id_autor, id_grupo) values ('Bom dia pessoal. Ontem fiz uma atualização em massa dos servidores e agora todos eles possuem autenticação, beleza? Lembrem de logar na aplicação para acessar os endpoints!', 7, 2);
-end //
 
+	insert into posts (texto, id_autor, id_grupo) values ('Bom dia pessoal, tudo bem? Eu atualizei todos os ambientes e agora todos precisam de autenticação para funcionar corretamente, ok? Se precisarem de credenciais acessem a WIKI do projeto.', 7, 3);
+
+	insert into comentarios (id_autor, id_post, texto) values (1, 3, 'Bom dia gurizão, ótimo dia pra todos nós! Abraço');
+	insert into comentarios (id_autor, id_post, texto) values (1, 5, 'Bom dia piá, vamooss!! Cola discord!');
+	insert into comentarios (id_autor, id_post, texto) values (1, 6, 'Oi, sim sim o .env.example está atualizado. Basta duplicá-lo alterando o nome para .env e rodar a aplicação que estará tudo funcionando! Abraço');
+	insert into comentarios (id_autor, id_post, texto) values (1, 7, 'Bom dia, tudo jóia e contigo?');
+	insert into comentarios (id_autor, id_post, texto) values (1, 8, 'Rapaz estou achando muito bom também. Acho que deveriamos usar em algum projeto');
+	insert into comentarios (id_autor, id_post, texto) values (1, 9, 'Opaaa, claro que sim. Eu e o Pedro estamos numa sala do discord já. Vem com a gente!');
+	insert into comentarios (id_autor, id_post, texto) values (1, 10, 'Nossa muito legal isso cara. Compartilha com a gente o que você fez.');
+	insert into comentarios (id_autor, id_post, texto) values (1, 11, 'Opa, bom dia tudo certo?!');
+	insert into comentarios (id_autor, id_post, texto) values (1, 13, 'Beleza, e contigo Everson?');
+	insert into comentarios (id_autor, id_post, texto) values (1, 15, 'Tranquilo, vamos atualizar o Front aqui para conectarmos aos ambientes autenticados. Valeu!');
+
+	insert into comentarios (id_autor, id_post, texto) values (2, 1, 'Bom dia guri!');
+	insert into comentarios (id_autor, id_post, texto) values (2, 5, 'Bom dia, vamo!!');
+	insert into comentarios (id_autor, id_post, texto) values (2, 7, 'Bom dia, tudo ótimo!!');
+	insert into comentarios (id_autor, id_post, texto) values (2, 9, 'Vamoss!!');
+	insert into comentarios (id_autor, id_post, texto) values (2, 11, 'Opa bom diaa!!');
+	insert into comentarios (id_autor, id_post, texto) values (2, 12, 'Show! Quando finalizar a gente pode fazer aquele alinhamento, bele?!');
+	insert into comentarios (id_autor, id_post, texto) values (2, 13, 'Beleeza');
+	insert into comentarios (id_autor, id_post, texto) values (2, 14, 'Os usuários de testes estão na WIKI? Consegue me passar o link da WIKI por favor?');
+	insert into comentarios (id_autor, id_post, texto) values (2, 15, 'Beleza!');
+
+	insert into comentarios (id_autor, id_post, texto) values (3, 1, 'Bom dia!!');
+	insert into comentarios (id_autor, id_post, texto) values (3, 2, 'Opa eu tenho sim cara, vou te mandar o link no chat, só 1 minuto');
+	insert into comentarios (id_autor, id_post, texto) values (3, 3, 'Ótimo dia');
+	insert into comentarios (id_autor, id_post, texto) values (3, 7, 'Tudo certo e contigo?');
+	insert into comentarios (id_autor, id_post, texto) values (3, 8, 'Sim sim, é muito interessante. Usei em um projeto pessoal e essa lib é realmente muito boa. Uma mão na roda');
+	insert into comentarios (id_autor, id_post, texto) values (3, 9, 'Boraa!');
+	insert into comentarios (id_autor, id_post, texto) values (3, 10, 'Cara mostra pra gente. Fiquei curioso');
+	insert into comentarios (id_autor, id_post, texto) values (3, 11, 'Bom dia');
+	insert into comentarios (id_autor, id_post, texto) values (3, 13, 'Beleza');
+	insert into comentarios (id_autor, id_post, texto) values (3, 15, 'Beleza!');
+
+	insert into comentarios (id_autor, id_post, texto) values (4, 1, 'Bom dia!!');
+	insert into comentarios (id_autor, id_post, texto) values (4, 2, 'Pior que estou precisando também. Se alguém puder me enviar ficaria agradecido!');
+	insert into comentarios (id_autor, id_post, texto) values (4, 3, 'Bom dia!!');
+	insert into comentarios (id_autor, id_post, texto) values (4, 5, 'Bom dia!!');
+	insert into comentarios (id_autor, id_post, texto) values (4, 6, 'Está atualizado sim. Inclusive a última modificação fui eu que fiz e está rodando aqui!');
+	insert into comentarios (id_autor, id_post, texto) values (4, 9, 'Bom dia!!');
+	insert into comentarios (id_autor, id_post, texto) values (4, 10, 'Legall');
+	insert into comentarios (id_autor, id_post, texto) values (4, 11, 'Bom dia!!');
+	insert into comentarios (id_autor, id_post, texto) values (4, 13, 'Bom dia!!');
+	insert into comentarios (id_autor, id_post, texto) values (4, 15, 'Beleza!');
+
+	insert into comentarios (id_autor, id_post, texto) values (5, 1, 'Bom dia!!');
+	insert into comentarios (id_autor, id_post, texto) values (5, 2, 'Se puder colocar o link dos assets em algum lugar para todos nós seria ótimo pois eu também não tenho não rsrsrs!');
+	insert into comentarios (id_autor, id_post, texto) values (5, 3, 'Bom diaaa!');
+	insert into comentarios (id_autor, id_post, texto) values (5, 5, 'Bom diaaa, vamos!');
+	insert into comentarios (id_autor, id_post, texto) values (5, 6, 'Está atualizado!');
+	insert into comentarios (id_autor, id_post, texto) values (5, 7, 'Bom dia tudo jóia!');
+	insert into comentarios (id_autor, id_post, texto) values (5, 8, 'Muito legal deveriamos usar mesmo!');
+	insert into comentarios (id_autor, id_post, texto) values (5, 11, 'Bom diaa');
+	insert into comentarios (id_autor, id_post, texto) values (5, 13, 'Bom diaa');
+	insert into comentarios (id_autor, id_post, texto) values (5, 15, 'Beleza!');
+
+	insert into comentarios (id_autor, id_post, texto) values (6, 1, 'Bom dia!!');
+	insert into comentarios (id_autor, id_post, texto) values (6, 3, 'Bom dia!!');
+	insert into comentarios (id_autor, id_post, texto) values (6, 4, 'Já estão sendo feitas sim!');
+	insert into comentarios (id_autor, id_post, texto) values (6, 5, 'Bom dia!!');
+	insert into comentarios (id_autor, id_post, texto) values (6, 7, 'Bom dia!!');
+	insert into comentarios (id_autor, id_post, texto) values (6, 9, 'Bom dia!!');
+	insert into comentarios (id_autor, id_post, texto) values (6, 13, 'Bom dia!!');
+	insert into comentarios (id_autor, id_post, texto) values (6, 14, 'Você consegue me passar as credenciais?');
+	insert into comentarios (id_autor, id_post, texto) values (6, 15, 'Beleza!');
+
+
+	insert into comentarios (id_autor, id_post, texto) values (7, 1, 'Bom dia!!');
+	insert into comentarios (id_autor, id_post, texto) values (7, 3, 'Bom dia!!');
+	insert into comentarios (id_autor, id_post, texto) values (7, 4, 'Já puxei uma aqui já. Estamos fazendo!');
+	insert into comentarios (id_autor, id_post, texto) values (7, 5, 'Bom dia!!');
+	insert into comentarios (id_autor, id_post, texto) values (7, 7, 'Bom dia!!');
+	insert into comentarios (id_autor, id_post, texto) values (7, 9, 'Bom dia!!');
+	insert into comentarios (id_autor, id_post, texto) values (7, 11, 'Bom dia!!');
+	insert into comentarios (id_autor, id_post, texto) values (7, 12, 'Legal.');
+
+	insert into likes (id_autor, id_post) values (1, 4);
+	insert into likes (id_autor, id_post) values (1, 6);
+	insert into likes (id_autor, id_post) values (1, 8);
+	insert into likes (id_autor, id_post) values (1, 9);
+	insert into likes (id_autor, id_post) values (1, 10);
+	insert into likes (id_autor, id_post) values (1, 15);
+
+	insert into likes (id_autor, id_post) values (2, 12);
+	insert into likes (id_autor, id_post) values (2, 14);
+	insert into likes (id_autor, id_post) values (2, 15);
+
+	insert into likes (id_autor, id_post) values (3, 1);
+	insert into likes (id_autor, id_post) values (3, 2);
+	insert into likes (id_autor, id_post) values (3, 3);
+	insert into likes (id_autor, id_post) values (3, 7);
+	insert into likes (id_autor, id_post) values (3, 8);
+	insert into likes (id_autor, id_post) values (3, 9);
+	insert into likes (id_autor, id_post) values (3, 10);
+	insert into likes (id_autor, id_post) values (3, 11);
+	insert into likes (id_autor, id_post) values (3, 13);
+	insert into likes (id_autor, id_post) values (3, 15);
+
+	insert into likes (id_autor, id_post) values (4, 1);
+	insert into likes (id_autor, id_post) values (4, 3);
+	insert into likes (id_autor, id_post) values (4, 5);
+	insert into likes (id_autor, id_post) values (4, 7);
+	insert into likes (id_autor, id_post) values (4, 9);
+	insert into likes (id_autor, id_post) values (4, 11);
+	insert into likes (id_autor, id_post) values (4, 13);
+	insert into likes (id_autor, id_post) values (4, 15);
+
+	insert into likes (id_autor, id_post) values (5, 1);
+	insert into likes (id_autor, id_post) values (5, 2);
+	insert into likes (id_autor, id_post) values (5, 3);
+	insert into likes (id_autor, id_post) values (5, 5);
+	insert into likes (id_autor, id_post) values (5, 6);
+	insert into likes (id_autor, id_post) values (5, 7);
+	insert into likes (id_autor, id_post) values (5, 8);
+	insert into likes (id_autor, id_post) values (5, 11);
+	insert into likes (id_autor, id_post) values (5, 13);
+	insert into likes (id_autor, id_post) values (5, 15);
+
+	insert into likes (id_autor, id_post) values (6, 2);
+	insert into likes (id_autor, id_post) values (6, 14);
+	insert into likes (id_autor, id_post) values (6, 15);
+
+	insert into likes (id_autor, id_post) values (7, 2);
+	insert into likes (id_autor, id_post) values (7, 12);
+
+	insert into mensagens_privadas (id_remetente, id_destinatario, texto) values (1, 3, 'Oi, sobre o env... você conseguiu resolver?');
+	insert into mensagens_privadas (id_remetente, id_destinatario, texto) values (3, 1, 'Consegui sim, obrigado!');
+	insert into mensagens_privadas (id_remetente, id_destinatario, texto) values (1, 3, 'Tranquilo. Hey, bora fazer pair programming hoje?');
+	insert into mensagens_privadas (id_remetente, id_destinatario, texto) values (3, 1, 'Vamos sim, só eu rodar a aplicação aqui!');
+	insert into mensagens_privadas (id_remetente, id_destinatario, texto) values (1, 3, 'Beleza. Me manda o link dos assets por favor?!');
+	insert into mensagens_privadas (id_remetente, id_destinatario, texto) values (3, 1, 'assets.zip');
+	insert into mensagens_privadas (id_remetente, id_destinatario, texto) values (3, 1, 'Ta na mão');
+
+	insert into mensagens_privadas (id_remetente, id_destinatario, texto) values (1, 2, 'Opa, nós vamos fazer a diária hoje?');
+	insert into mensagens_privadas (id_remetente, id_destinatario, texto) values (2, 1, 'Sim sim, está marcado para 10:00');
+	insert into mensagens_privadas (id_remetente, id_destinatario, texto) values (1, 2, 'Perfeito');
+
+	insert into mensagens_privadas (id_remetente, id_destinatario, texto) values (1, 4, 'Muito legal a lib que você comentou hoje');
+	insert into mensagens_privadas (id_remetente, id_destinatario, texto) values (4, 1, 'Massa né?! Vamos colocar em algum projeto, vai ser muito bom!');
+	insert into mensagens_privadas (id_remetente, id_destinatario, texto) values (1, 4, 'Com certeza vamos');
+
+	insert into mensagens_privadas (id_remetente, id_destinatario, texto) values (1, 5, 'Opa, cola comigo e com o Pedro aqui, vai ser legal');
+	insert into mensagens_privadas (id_remetente, id_destinatario, texto) values (5, 1, 'Estou indo, só vou pegar um café');
+
+	insert into mensagens_privadas (id_remetente, id_destinatario, texto) values (2, 6, 'Sobre os dumps... consegue me passar os arquivos?');
+	insert into mensagens_privadas (id_remetente, id_destinatario, texto) values (6, 2, 'Claro, só 1 minuto');
+	insert into mensagens_privadas (id_remetente, id_destinatario, texto) values (6, 2, 'dumps.zip');
+	insert into mensagens_privadas (id_remetente, id_destinatario, texto) values (2, 6, 'Obrigado!');
+
+	insert into mensagens_privadas (id_remetente, id_destinatario, texto) values (2, 7, 'Rapaz e sobre aquelas credenciais lá, como ficou?');
+	insert into mensagens_privadas (id_remetente, id_destinatario, texto) values (7, 2, 'Coloquei na WIKI do projeto pra galera toda ver. Os ambientes foram todos atualizados');
+	insert into mensagens_privadas (id_remetente, id_destinatario, texto) values (2, 7, 'Entendi, até DEV?');
+	insert into mensagens_privadas (id_remetente, id_destinatario, texto) values (7, 2, 'Sim, até DEV. Todos os ambientes agora precisam de autenticação pra funcionar');
+	insert into mensagens_privadas (id_remetente, id_destinatario, texto) values (2, 7, 'Ok vou avisar o time');
+
+	insert into mensagens_privadas (id_remetente, id_destinatario, texto) values (3, 4, 'Viu, vai fazer o que hoje após o trabalho?');
+	insert into mensagens_privadas (id_remetente, id_destinatario, texto) values (4, 3, 'Nada, pq?');
+	insert into mensagens_privadas (id_remetente, id_destinatario, texto) values (3, 4, 'Vamos um garticzinho?');
+	insert into mensagens_privadas (id_remetente, id_destinatario, texto) values (4, 3, 'Claro!');
+
+	insert into mensagens_privadas (id_remetente, id_destinatario, texto) values (3, 5, 'Bora gartic após o trabalho?');
+	insert into mensagens_privadas (id_remetente, id_destinatario, texto) values (5, 3, 'Vamos!');
+
+	insert into mensagens_privadas (id_remetente, id_destinatario, texto) values (6, 7, 'Rapaz, das autenticações lá, o ambiente está rodando?');
+	insert into mensagens_privadas (id_remetente, id_destinatario, texto) values (7, 6, 'Está sim, acessa o ip 404 lá que vai estar online');
+	insert into mensagens_privadas (id_remetente, id_destinatario, texto) values (6, 7, 'Beleza vlwww!');
+
+end //
 delimiter ;
 
 call PopulandoBanco();
 
-select
-  *
-from
-  usuarios u;
+select * from usuarios u;
+select * from posts p;
+select * from comentarios c;
+select * from likes l;
+select * from mensagens_privadas mp;
+select * from amizades a;
+select * from grupos g;
+select * from membros_grupo mg;
 
-select
-  *
-from
-  amizades a;
-
-select
-  *
-from
-  grupos g;
-
-select
-  *
-from
-  posts p;
 
 -- [x] - Usuários: ID, nome, email, senha, data de registro, etc.
 -- [x] - Posts: ID, ID do autor, texto, data de publicação, ID do grupo (opcional), etc.
--- [ ] - Comentários: ID, ID do post associado, ID do autor, texto, data de publicação, etc.
--- [ ] - Likes: ID, ID do post associado, ID do autor do like, etc.
--- [ ] - MensagensPrivadas: ID, ID do remetente, ID do destinatário, texto, data de envio, etc.
+-- [x] - Comentários: ID, ID do post associado, ID do autor, texto, data de publicação, etc.
+-- [x] - Likes: ID, ID do post associado, ID do autor do like, etc.
+-- [x] - MensagensPrivadas: ID, ID do remetente, ID do destinatário, texto, data de envio, etc.
 -- [x] - Amizades: ID do usuário1, ID do usuário2, data de início da amizade, etc.
 -- [x] - Grupos: ID, nome do grupo, descrição, etc.
 -- [x] - MembrosGrupo: ID do usuário, ID do grupo, data de entrada no grupo, etc.
