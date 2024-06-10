@@ -35,7 +35,7 @@ begin
 	  id mediumint auto_increment not null primary key,
 	  texto varchar(255) not null,
 	  data_publicacao timestamp default current_timestamp,
-	  id_autor mediumint not null,
+	  id_autor mediumint,
 	  id_grupo mediumint,
 	  foreign key (id_autor) references usuarios (id),
 	  foreign key (id_grupo) references grupos (id)
@@ -119,7 +119,8 @@ begin
 	  ('Eduardo', 'eduardo@example.com', '12345'),
 	  ('Vitor', 'vitor@example.com', '12345'),
 	  ('Caick', 'caick@example.com', '12345'),
-	  ('Everson', 'everson@example.com', '12345');
+	  ('Everson', 'everson@example.com', '12345'),
+	  ('Usuario Anônimo', 'usuarioanonimo@example.com', '12345');
 
 	insert into
 	  grupos (nome, descricao)
@@ -184,28 +185,29 @@ begin
 	values
 	  (4, 5);
 
-	insert into posts (texto, id_autor)	values ('Bom dia gurizada!', 1);
-	insert into posts (texto, id_autor, id_grupo) values ('Olá pessoal, tudo bem? Alguém ai tem aqueles assets que vamos utilizar no projeto? Poderia me mandar o link de download do zip por favor?', 1, 1);
+	insert into posts (texto, id_autor, id_grupo, data_publicacao) values ('Bom dia gurizada!', 1, null, '2024-06-10 10:00:00');
+	insert into posts (texto, id_autor, id_grupo, data_publicacao) values ('Olá pessoal, tudo bem? Alguém ai tem aqueles assets que vamos utilizar no projeto? Poderia me mandar o link de download do zip por favor?', 1, 1, '2024-06-10 10:10:00');
 
-	insert into posts (texto, id_autor) values ('Ótimo dia à todos', 2);
-	insert into posts (texto, id_autor, id_grupo) values ('Fala galera, beleza? Daqueles métodos JAVA que fizemos estimativa ontem, alguém ai já pegou tarefa deles?', 2, 2);
+	insert into posts (texto, id_autor, id_grupo, data_publicacao) values ('Ótimo dia à todos', 2, null, '2024-06-10 10:20:00');
+	insert into posts (texto, id_autor, id_grupo, data_publicacao) values ('Fala galera, beleza? Daqueles métodos JAVA que fizemos estimativa ontem, alguém ai já pegou tarefa deles?', 2, 2, '2024-06-10 10:30:00');
 
-	insert into posts (texto, id_autor)	values ('Bom dia pessoal, vamos codar!!!', 3);
-	insert into posts (texto, id_autor, id_grupo) values ('Oi pessoal, alguém sabe dizer se aquele .env.example está atualizado?', 3, 1);
+	insert into posts (texto, id_autor, id_grupo, data_publicacao) values ('Bom dia pessoal, vamos codar!!!', 3, null, '2024-06-10 10:40:00');
+	insert into posts (texto, id_autor, id_grupo, data_publicacao) values ('Oi pessoal, alguém sabe dizer se aquele .env.example está atualizado?', 3, 1, '2024-06-10 10:50:00');
 
-	insert into posts (texto, id_autor)	values ('Bom dia pessoal, tudo ótimo com vocês?', 4);
-	insert into posts (texto, id_autor, id_grupo) values ('Fala galera, beleza? E aquela nova biblioteca JavaScript que lançou integração com o REACT... o que vocês estão achando dela? Eu achei show de bola!', 4, 1);
+	insert into posts (texto, id_autor, id_grupo, data_publicacao) values ('Bom dia pessoal, tudo ótimo com vocês?', 4, null, '2024-06-10 11:00:00');
+	insert into posts (texto, id_autor, id_grupo, data_publicacao) values ('Fala galera, beleza? E aquela nova biblioteca JavaScript que lançou integração com o REACT... o que vocês estão achando dela? Eu achei show de bola!', 4, 1, '2024-06-10 11:10:00');
 
-	insert into posts (texto, id_autor) values ('Oi pessoal, vamos escrever código hoje?!', 5);
-	insert into posts (texto, id_autor, id_grupo) values ('Bom dia pessoal, estou impressionado com o que fiz ontem utilizando somente JavaScript. Desenvolvi um web scraping muito doido!!!', 5, 1);
+	insert into posts (texto, id_autor, id_grupo, data_publicacao) values ('Oi pessoal, vamos escrever código hoje?!', 5, null, '2024-06-10 11:20:00');
+	insert into posts (texto, id_autor, id_grupo, data_publicacao) values ('Bom dia pessoal, estou impressionado com o que fiz ontem utilizando somente JavaScript. Desenvolvi um web scraping muito doido!!!', 5, 1, '2024-06-10 11:30:00');
 
-	insert into posts (texto, id_autor)	values ('Bom dia pessoal!', 6);
-	insert into posts (texto, id_autor, id_grupo) values ('Bom dia pessoal, fiz o dump do banco de dados para os meninos do frontend e agora vou prosseguir no auxilio deles para restauração dos bancos.', 6, 2);
+	insert into posts (texto, id_autor, id_grupo, data_publicacao) values ('Bom dia pessoal!', 6, null, '2024-06-10 11:40:00');
+	insert into posts (texto, id_autor, id_grupo, data_publicacao) values ('Bom dia pessoal, fiz o dump do banco de dados para os meninos do frontend e agora vou prosseguir no auxilio deles para restauração dos bancos.', 6, 2, '2024-06-10 11:50:00');
 
-	insert into posts (texto, id_autor) values ('Fala pessoal, beleza?', 7);
-	insert into posts (texto, id_autor, id_grupo) values ('Bom dia pessoal. Ontem fiz uma atualização em massa dos servidores e agora todos eles possuem autenticação, beleza? Lembrem de logar na aplicação para acessar os endpoints!', 7, 2);
+	insert into posts (texto, id_autor, id_grupo, data_publicacao) values ('Fala pessoal, beleza?', 7, null, '2024-06-10 12:00:00');
+	insert into posts (texto, id_autor, id_grupo, data_publicacao) values ('Bom dia pessoal. Ontem fiz uma atualização em massa dos servidores e agora todos eles possuem autenticação, beleza? Lembrem de logar na aplicação para acessar os endpoints!', 7, 2, '2024-06-10 12:10:00');
 
-	insert into posts (texto, id_autor, id_grupo) values ('Bom dia pessoal, tudo bem? Eu atualizei todos os ambientes e agora todos precisam de autenticação para funcionar corretamente, ok? Se precisarem de credenciais acessem a WIKI do projeto.', 7, 3);
+	insert into posts (texto, id_autor, id_grupo, data_publicacao) values ('Bom dia pessoal, tudo bem? Eu atualizei todos os ambientes e agora todos precisam de autenticação para funcionar corretamente, ok? Se precisarem de credenciais acessem a WIKI do projeto.', 7, 3, '2024-06-10 13:00:00');
+	insert into posts (texto, id_autor, id_grupo, data_publicacao) values ('Post fantasma', null, null, '2024-06-10 18:00:00');
 
 	insert into comentarios (id_autor, id_post, texto) values (1, 3, 'Bom dia gurizão, ótimo dia pra todos nós! Abraço');
 	insert into comentarios (id_autor, id_post, texto) values (1, 5, 'Bom dia piá, vamooss!! Cola discord!');
@@ -329,6 +331,8 @@ begin
 
 	insert into likes (id_autor, id_post) values (7, 2);
 	insert into likes (id_autor, id_post) values (7, 12);
+	insert into likes (id_autor, id_post) values (7, 15);
+	insert into likes (id_autor, id_post) values (8, 15);
 
 	insert into mensagens_privadas (id_remetente, id_destinatario, texto) values (1, 3, 'Oi, sobre o env... você conseguiu resolver?');
 	insert into mensagens_privadas (id_remetente, id_destinatario, texto) values (3, 1, 'Consegui sim, obrigado!');
@@ -385,6 +389,218 @@ select * from mensagens_privadas mp;
 select * from amizades a;
 select * from grupos g;
 select * from membros_grupo mg;
+
+
+-- REALIZANDO O DUMP / RESTORE DE UM BANCO DE DADOS VIA TERMINAL
+mysqldump -u root -p --databases rede_social > rede_social.sql
+
+mysql -u root -p rede_social < rede_social.sql
+
+-- LISTANDO TODOS OS USUÁRIOS QUE TEM ACESSO AO BANCO DE DADOS
+select * from mysql.user;
+
+-- CRIANDO UM USUÁRIO APENAS COM PERMISSÃO DE VISUALIZAR TODO MEU BANCO DE DADOS
+create user 'johndoe1' identified by 'johndoe1';
+grant select on rede_social.* to 'johndoe1';
+flush privileges;
+
+-- CRIANDO UM USUÁRIO APENAS COM PERMISSÃO DE VISUALIZAR A TABELA DE POSTS DO MEU BANCO DE DADOS
+create user 'johndoe2' identified by 'johndoe2';
+grant select on rede_social.posts to 'johndoe2';
+flush privileges;
+
+-- MINI-DESAFIOS
+
+-- 1. MySQL SELECT:
+select u.nome, u.email from usuarios u;
+
+-- 2. MySQL WHERE:
+select * from posts p where p.id_autor = 1;
+
+-- 3. MySQL AND, OR, NOT:
+select * from posts p where (p.texto like '%dia%' and p.data_publicacao > '2024-06-10 11:00:00') or (p.id_autor = 1);
+select * from posts p where (NOT p.id_grupo = 2 ) or (p.id_grupo is null);
+
+-- 4. MySQL ORDER BY:
+select * from posts p order by p.data_publicacao desc;
+
+-- 5. MySQL INSERT INTO:
+insert into usuarios (nome, email, senha) values ('John Doe', 'johndoe@example.com', '123');
+
+-- 6. MySQL NULL Values:
+select * from posts p where p.id_grupo is null;
+
+-- 7. MySQL UPDATE:
+update usuarios u set u.nome = 'John Doe (updated)', u.senha = '12345' where u.nome = 'John Doe';
+
+-- 8. MySQL DELETE:
+delete from usuarios u where u.nome = 'John Doe (updated)';
+
+-- 9. MySQL LIMIT:
+select * from posts p order by p.data_publicacao desc limit 0,10;
+
+-- 10. MySQL MIN and MAX:
+select MIN(p.data_publicacao) as primeiro_post, MAX(p.data_publicacao) as ultimo_post, p.id_autor from posts p where p.id_autor = 1;
+
+-- 11. MySQL COUNT, AVG, SUM:
+select COUNT(*) from likes l where l.id_post = 1;
+
+select
+	l.id_post,
+	p.texto as post,
+	u.nome as autor,
+	COUNT(*) as likes
+from
+	likes l
+inner join posts p on
+	p.id = l.id_post
+inner join usuarios u on
+	u.id = p.id_autor
+group by
+	l.id_post
+order by
+	likes desc;
+
+select
+	avg(likes)
+from
+	(
+	select
+		count(*) as likes
+	from
+		likes l
+	group by
+		l.id_post) as likes;
+
+-- 12. MySQL LIKE:
+select * from usuarios u where u.nome like 'a%';
+select * from usuarios u where u.nome like 'j%';
+
+-- 13. MySQL Wildcards:
+select * from usuarios u where u.nome like '%dev%';
+select * from usuarios u where u.nome like '%a%';
+
+-- 14. MySQL IN:
+select * from posts p where p.id_autor in (1, 2, 3);
+
+-- 15. MySQL BETWEEN:
+select * from posts p where p.data_publicacao BETWEEN '2024-06-10 12:00:00' AND '2024-06-10 13:00:00'
+
+-- 16. MySQL Aliases:
+select u.nome as 'Autor', p.texto as 'Conteúdo' from posts p inner join usuarios u where u.id = p.id_autor;
+
+-- 17. MySQL Joins:
+select u.nome as 'Autor', p.texto as 'Conteúdo' from posts p inner join usuarios u where u.id = p.id_autor;
+
+-- 18. MySQL INNER JOIN:
+select u.nome as 'Autor', p.texto as 'Conteúdo' from posts p inner join usuarios u where u.id = p.id_autor;
+
+-- 19. MySQL LEFT JOIN:
+select * from usuarios u left join posts p on p.id_autor = u.id
+
+-- 20. MySQL RIGHT JOIN:
+select * from posts p right join usuarios u on u.id = p.id_autor;
+
+-- 21. MySQL CROSS JOIN:
+select  u.id as id_usuario, u.nome, g.id as id_grupo, g.nome from usuarios u cross join grupos g;
+
+-- 22. MySQL Self Join:
+select * from amizades a where a.id_usuario_1 <> a.id_usuario_2;
+
+-- 23. MySQL UNION:
+select p.texto from posts p
+union
+select c.texto from comentarios c;
+
+-- 24. MySQL GROUP BY:
+select p.id_autor, count(p.id) as quantidade_de_posts from posts p group by p.id_autor ;
+
+-- 25. MySQL HAVING:
+select
+	g.nome,
+	count(mg.id_grupo) as quantidade_membros
+from
+	membros_grupo mg
+inner join grupos g on
+	g.id = mg.id_grupo
+group by
+	mg.id_grupo
+having
+	quantidade_membros > 5;
+
+-- 26. MySQL EXISTS:
+select * from usuarios u where exists (select * from posts p where p.id_autor = u.id)
+
+-- 27. MySQL ANY, ALL:
+select
+	*
+from
+	posts p
+where
+	p.id = any (
+	select
+		l.id_post
+	from
+		likes l
+	group by
+		l.id_post
+	having
+		count(l.id) = (
+		select
+			count(u.id)
+		from
+			usuarios u)
+
+);
+
+-- 28. MySQL INSERT SELECT:
+create table PostsBackup (
+	  id mediumint auto_increment not null primary key,
+	  texto varchar(255) not null,
+	  data_publicacao timestamp default current_timestamp,
+	  id_autor mediumint,
+	  id_grupo mediumint,
+	  foreign key (id_autor) references usuarios (id),
+	  foreign key (id_grupo) references grupos (id)
+);
+
+insert into PostsBackup select * from posts p where p.id_autor = 7;
+
+select * from PostsBackup;
+
+drop table PostsBackup;
+
+
+
+-- 29. MySQL CASE
+
+select
+    case
+        when u.nome is null then 'usuário anônimo'
+        else u.nome
+    end as 'autor',
+    p.texto as 'conteúdo'
+from
+    posts p
+left join
+    usuarios u on u.id = p.id_autor;
+
+
+
+-- 30. MySQL Operators:
+select
+    p.*
+from
+    posts p
+where
+    p.data_publicacao > '2024-06-10 12:00:00'
+    and (
+        select count(*)
+        from likes l
+        where l.id_post = p.id
+    ) > 5;
+
+
 
 
 -- [x] - Usuários: ID, nome, email, senha, data de registro, etc.
