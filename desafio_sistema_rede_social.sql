@@ -426,7 +426,7 @@ select * from posts p order by p.data_publicacao desc;
 
 -- 5. MySQL INSERT INTO:
 insert into usuarios (nome, email, senha) values ('John Doe', 'johndoe@example.com', '123');
-
+insert into posts  (texto, id_autor) values ('Esse post será apagado', 9);
 -- 6. MySQL NULL Values:
 select * from posts p where p.id_grupo is null;
 
@@ -434,6 +434,7 @@ select * from posts p where p.id_grupo is null;
 update usuarios u set u.nome = 'John Doe (updated)', u.senha = '12345' where u.nome = 'John Doe';
 
 -- 8. MySQL DELETE:
+delete from posts p where p.texto = 'Esse post será apagado';
 delete from usuarios u where u.nome = 'John Doe (updated)';
 
 -- 9. MySQL LIMIT:
@@ -576,7 +577,7 @@ drop table PostsBackup;
 
 select
     case
-        when u.nome is null then 'usuário anônimo'
+        when u.nome is null then 'Usuário Anônimo'
         else u.nome
     end as 'autor',
     p.texto as 'conteúdo'
@@ -600,14 +601,24 @@ where
         where l.id_post = p.id
     ) > 5;
 
+-- 31. MySQL Views:
+create or replace view PopularPosts as
+select
+	p.id,
+	p.texto,
+	p.data_publicacao,
+	p.id_autor,
+	p.id_grupo,
+	count(l.id) as total_likes
+from
+	posts p
+inner join usuarios u on
+	u.id = p.id_autor
+inner join likes l on
+	l.id_post = p.id
+group by
+	p.id
+having
+	count(l.id) > 5;
 
-
-
--- [x] - Usuários: ID, nome, email, senha, data de registro, etc.
--- [x] - Posts: ID, ID do autor, texto, data de publicação, ID do grupo (opcional), etc.
--- [x] - Comentários: ID, ID do post associado, ID do autor, texto, data de publicação, etc.
--- [x] - Likes: ID, ID do post associado, ID do autor do like, etc.
--- [x] - MensagensPrivadas: ID, ID do remetente, ID do destinatário, texto, data de envio, etc.
--- [x] - Amizades: ID do usuário1, ID do usuário2, data de início da amizade, etc.
--- [x] - Grupos: ID, nome do grupo, descrição, etc.
--- [x] - MembrosGrupo: ID do usuário, ID do grupo, data de entrada no grupo, etc.
+select * from PopularPosts;
