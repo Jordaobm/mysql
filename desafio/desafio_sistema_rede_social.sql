@@ -409,6 +409,8 @@ create user 'johndoe2' identified by 'johndoe2';
 grant select on rede_social.posts to 'johndoe2';
 flush privileges;
 
+-- CRIANDO INDICES PARA AS COLUNAS DA TABELA DE LIKES
+
 -- MINI-DESAFIOS
 
 -- 1. MySQL SELECT:
